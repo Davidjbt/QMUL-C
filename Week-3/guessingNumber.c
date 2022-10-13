@@ -4,15 +4,12 @@
 #define MAX 6;
 #define MIN 1;
 
+// It gets a random value, the remainder is obtained by dividing it by the number of different values between max and min, then min is added so that the number can be in the range, then it returns this new value.
 int getRandomNumber(int min, int max) {
-    int randomNumber;
-
-    srand(time(NULL));
-    do  {
-        randomNumber = rand();
-    } while (!(min <= randomNumber && randomNumber <= max));
-
-    return randomNumber;
+    // srand(time(NULL)); uncomment this, so that every time the program is run it gets a different random value.
+    unsigned randomNumber = rand();
+    
+    return min + randomNumber % (max - min + 1);
 }
 
 void main() {
