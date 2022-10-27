@@ -19,6 +19,7 @@ int isEmpty(stackNode **stackPtr) {
 
 void push(stackNode **stackPtr, int nodeData) {
     stackNode *newNode = (stackNode*)malloc(sizeof(stackNode));
+    assert(newNode!=NULL);
     newNode->nodeData = nodeData;
 
     newNode->nextPtr = isEmpty(stackPtr) == TRUE? NULL: *stackPtr;
