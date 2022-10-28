@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-#define SIZE 50
+#define SIZE 500
 
 typedef struct list_words {
     char value[SIZE];
@@ -15,7 +15,6 @@ int getSpaceIndex(char word[]) {
     }
     return -1;
 }
-
 
 void deleteWhiteSpaces(char word[]) {
     // printf("Original: '%s' %llu\n", word, strlen(word));
@@ -47,6 +46,7 @@ void main() {
         c = getchar();
     }
 
+    deleteWhiteSpaces(input);
     // printf("input: ->%s<- %llu\n", input, strlen(input));
 
     char *arr = strtok(input, ",");
@@ -58,7 +58,6 @@ void main() {
     while (arr != NULL) {
         next = (word*) malloc(sizeof(word));
         assert(next != NULL);
-        deleteWhiteSpaces(arr);
         strcpy(current->value, arr);
         arr = strtok(NULL, ",");
         if (arr != NULL) {
