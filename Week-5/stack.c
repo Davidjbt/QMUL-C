@@ -74,7 +74,6 @@ void main() {
                 pop(&stackPtr, nodeData);
                 printStack(stackPtr);
             } else {
-                
                 printf("Action not recognized.");   
             }
         } else exit = 1;
