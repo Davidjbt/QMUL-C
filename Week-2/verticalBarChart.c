@@ -5,8 +5,8 @@
 // It returns the lowest integer.
 int getLowestInt(int numbers[]) {
     int lowestInt = 0;
-    for (int i = 0; i < SIZE; i++) {
-        if (numbers[i] < lowestInt) lowestInt = numbers[i];
+    for (int i = 0; i < SIZE; i++) { // Loop through the array.
+        if (numbers[i] < lowestInt) lowestInt = numbers[i]; // if the current number is lower than the lowest, then the current number becomes the new lowest variable.
     }
 
     return lowestInt;
@@ -15,8 +15,8 @@ int getLowestInt(int numbers[]) {
 // It returns the highest integer.
 int getHighestInt(int numbers[]) {
     int highestInt = 0;
-    for (int i = 0; i < SIZE; i++) {
-        if (numbers[i] > highestInt) highestInt = numbers[i];
+    for (int i = 0; i < SIZE; i++) { // Loop through the array.
+        if (numbers[i] > highestInt) highestInt = numbers[i]; // If the currrent number is higher than the highest, then the current number becomes the new highest variable.
     }
     return highestInt;
 }
@@ -25,7 +25,7 @@ void main() {
     int numbers[SIZE];
     
     printf("Please enter %i numbers \n", SIZE);
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < SIZE; i++) { // We collect SIZE numbers of integers and assigning it to the one cell in the numbers array.
         printf("Please enter number: ");
         scanf("%d", &numbers[i]);
     }
@@ -36,18 +36,18 @@ void main() {
     int startPosition = 0;
 
     int index; // Holds the index at which -1 or 1, which will considered to be the starting point.
-    if (highestInt > 0) {
+    if (highestInt > 0) { // Checks if the highest number is greater than 0.
 
-        if (lowestInt > 0) lowestInt = 0;
+        if (lowestInt > 0) lowestInt = 0; // If the lowest integer is greater than 0 then we set it to 0.
 
-        for (int i = lowestInt; i <= highestInt; i++) {
-            if (i == 1) startPosition = index - 1;
+        for (int i = lowestInt; i <= highestInt; i++) { // Loops from the lowest int to the highest int.
+            if (i == 1) startPosition = index - 1; // Once i is equals to 1 we set the start postion to index - 1;
             
             index++;
         }
-        rows = fabs(lowestInt) + highestInt;
+        rows = fabs(lowestInt) + highestInt; // The numbers of rows used will be to absolute value of lowest int plus highest int
     } else {
-        for (int i = lowestInt; i <= 0; i++) {
+        for (int i = lowestInt; i <= 0; i++) { // Loops from the lowest int to 0.
             startPosition = fabs(lowestInt);
             index++;
         }
