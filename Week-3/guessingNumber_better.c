@@ -9,9 +9,9 @@ int getRandomNumber(int min, int max) {
     // srand(time(NULL)); uncomment this, so that every time the program is run it gets a different random value.
     unsigned randomNumber = rand();
     
-    return min + randomNumber % (max - min + 1);
+    return min + randomNumber % (max - min + 1); // Apply modulus operation to get the remainder of the randomNumber by the difference of the max and min + 1. then add min so that the result is between min and max.
 }
-
+// main function, the program will start from this function.
 void main() {
     int max = MAX;
     int min = MIN;
@@ -20,8 +20,8 @@ void main() {
     int guessedNumber;
 
     printf("Guess the number (%i-%i): ", min, max);
-    scanf("%d", &guessedNumber);
+    scanf("%d", &guessedNumber); // Stores the input integer to the address in memory of guessedNumber.
 
+    // If the guessed number and random number are equals then it prints Well done. If not then compared again to check if random number is greater than guessed number or vice versa, it print a proper message saying what the case is.
     guessedNumber == randomNumber? printf("Well done!") : randomNumber > guessedNumber? printf("The correct number is bigger"): printf("The correct number is smaller");
-    
 }

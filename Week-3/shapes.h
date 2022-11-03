@@ -1,5 +1,5 @@
 #ifndef SHAPES_H_
-#define SHAPES_H_
+    #define SHAPES_H_
 
 void drawSquare(int size);
 void drawRightAngleLeft(int size);

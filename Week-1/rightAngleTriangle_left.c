@@ -11,7 +11,7 @@ void main() {
             printf("%c", character);
         }
         // 2nd inner loop to print N - i - 1 number of spaces.
-        for (int j = N - i; j > 0; j--) {
+        for (int j = 0; j < N - i; j++) {
             printf(" ");
         }
         printf("\n");

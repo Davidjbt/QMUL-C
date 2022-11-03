@@ -20,7 +20,7 @@ int getHighestInt(int numbers[]) {
     }
     return highestInt;
 }
-
+// main function, the program will start from this function.
 void main() {
     int numbers[SIZE];
     
@@ -29,6 +29,8 @@ void main() {
         printf("Please enter number: ");
         scanf("%d", &numbers[i]);
     }
+
+    for (int i = 0; i < SIZE; i++) numbers[i] *= -1; // Every number sign is fliped. Without this the output would be reversed.
 
     int highestInt = getHighestInt(numbers);
     int lowestInt = getLowestInt(numbers);
@@ -46,54 +48,26 @@ void main() {
             index++;
         }
         rows = fabs(lowestInt) + highestInt; // The numbers of rows used will be to absolute value of lowest int plus highest int
-    } else {
-        for (int i = lowestInt; i <= 0; i++) { // Loops from the lowest int to 0.
-            startPosition = fabs(lowestInt);
-            index++;
-        }
-        rows = startPosition;
-    }
-
-    char breakSpace[rows];
-
-    char arr[SIZE][rows];
-
-    // Initializing the 2d array with whitespaces.
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < rows; j++) {
-            arr[i][j] = ' ';
-        }
-    }
-
+    } else rows = fabs(lowestInt); // This will be the there is no positive numbers, and the number of rows used will be the absolute value of the lowest int
+    
+    char arr[rows][SIZE]; // Creates an array of character rows rows x SIZE columns
     // Adding '*' to the correspondent cells.
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < fabs((double)numbers[i]); j++) {
-            if (numbers[i] > 0) {
-                arr[i][startPosition + j] = '*';
-            } else if (numbers[i] < 0){
-                arr[i][startPosition - 1 - j] = '*';
-                // printf("i:%i, j:%i  ", i, j);
-            }    
+    for (int i = 0; i < SIZE; i++) { // Loops from 0 to SIZE (columns);
+        for (int j = 0; j < rows; j++) arr[j][i] = ' '; // It fills the current column with spaces.
+        for (int j = 0; j < fabs((double)numbers[i]); j++) { // Loops from 0 to the absolute value of the current number input.
+            if (numbers[i] > 0) { // if the current number is greater than 0.
+                arr[startPosition + j][i] = '*'; // Then it will start placing the '*' from the row indicated by the startPosition, then startPosition + 1, and so on.
+            } else if (numbers[i] < 0) { // if the current number is less than 0.
+                arr[startPosition - 1 - j][i] = '*'; // Then it will start placing the '*' from one row below the one indicated by the startPosition, then startPosition - 1, and so on.
+            } 
         }
-    }
-
-    // printf("%s\n", breakSpace);
-
-    // for (int i = 0; i < SIZE; i++) {
-    //     for (int j = 0; j < rows; j++) {
-    //             printf("%c", arr[i][j]);
-    //     }
-    //     printf("\n");
-    // }
-
-    printf("\n");
-
-    // Printing the 2d array to something similar to a Transpose of a Matrix
-    for (int i = rows - 1; i >= 0; i--) {
-        for (int j = 0; j < SIZE; j++) {
-            printf("%c", arr[j][i]);
-        }
-        printf("\n");
     }
     
+    // Display the contents of the 2d array.
+    for (int i = 0; i < rows; i++) { // Loops through all the rows
+        printf("\n"); // new line to separate the rows.
+        for (int j = 0; j < SIZE; j++) { // Loops through all the contents of the current rows and displays it.
+            printf("%c", arr[i][j]);
+        }
+    }
 }

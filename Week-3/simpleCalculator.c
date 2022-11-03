@@ -20,27 +20,27 @@ int parseCharToInt(char n) {
     if (n == '9') return 9;
     return 0;
 }
-
+// function that will return the char array argument convertd as a integer.
 int parseCharArrToInt(char operand[]) {
     int value = 0;
     int power = 0;
 
-    // Creating an array which will contain the same values of the input array but without the unused cells.
+    // Creating an array which will contain the same values of the input array but without null terminator.
     int actualInputLength = 0;
 
-    while (operand[actualInputLength] != '\0') {
+    while (operand[actualInputLength] != '\0') { // We loop loop through the char array (string) until the current character is equals to the null terminator.
         actualInputLength++;
     }
 
-    char actualOperand[actualInputLength];
-    for (int j = 0; j < actualInputLength; j++) {
+    char actualOperand[actualInputLength]; // Creates a string of the length of the input minus the null terminator.
+    for (int j = 0; j < actualInputLength; j++) { // We copy the contents of the input string into the new char array, excluding the null terminator.
         actualOperand[j] = operand[j];
     }
     // Char array without unused cells done!!!
 
-    for (int i = actualInputLength - 1; i >= 0; i--) {
-        value += parseCharToInt(actualOperand[i])*pow(10, power);;
-        power++;
+    for (int i = actualInputLength - 1; i >= 0; i--) { // loop from the index of the last character to  0.
+        value += parseCharToInt(actualOperand[i])*pow(10, power); // accumulator pattern, we add the parsed char(now int) times the power to the power of its order.
+        power++; // increment order.
     }
 
     return value;
@@ -101,63 +101,12 @@ void main() {
         // Or parse through the array
         int a = parseCharArrToInt(operand1); 
         int b = parseCharArrToInt(operand2); 
-        if (operator == '+') printf("Result is %i", ADDITION(a, b));
+        if (operator == '+') printf("Result is %i", ADDITION(a, b)); // if the operator is equals to any of these operation we execute the correspodent macro function.
         else if (operator == '-') printf("Result is %i", SUBTRACTION(a, b));
         else if (operator == '*') printf("Result is %i", MULTIPLICATION(a, b));
         else if (operator == 'x') printf("Result is %i", MULTIPLICATION(a, b));
         else if (operator == '/') printf("Result is %i", DIVISION(a, b));
-    } else {
+    } else { // else not valid operator was entered.
         printf("Not operator has been found.");
     }
 }
-
-
-// int findOperatorIndex(char operation[]) {
-
-//     for (int i = 0; i < sizeof(operation) / 4; i++) {
-//         if (operation == '+' || operation == '-' || operation == '*' || operation == 'x' || operation == '/') return i;
-//     }
-
-//     return -1;
-// }
-
-// int getOperand(char operation[], int operatorIndex, int operandNumber) {
-//     int length = operandNumber == 1? operatorIndex: sizeof(operation)/4 - operatorIndex
-//     int temp[length];
-
-//     for (int i; i < operatorIndex; i++) {
-//         temp[i] = operation[i];
-//     }
-
-//     return atoi(temp);
-// }
-
-// void main() {
-//     char input[SIZE];
-//     printf("Enter operation: ");
-//     scanf("%30s", input);
-//     int actualOperationLength = 0;
-//     int i = 0;
-//     while (input[i] != '\0') {
-//         actualOperationLength++;
-//         i++;
-//     }
-
-//     char operation[actualOperationLength];
-//     for (int i = 0; i < actualOperationLength; i++) {
-//         operation[i] = operation[i];
-//     }
-
-//     int operatorIndex = findOperatorIndex(operation);
-//     int operand1 = getOperand(operation, operatorIndex, 1);
-//     int operand2 = getOperand(operation, operatorIndex, 2);
-
-//     if (operatorIndex != -1) {
-        
-
-
-//     } else {
-//         printf("Not a valid operation.")
-//     }
-
-// }

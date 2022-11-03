@@ -50,22 +50,14 @@ void main() {
 
         rows = fabs(lowestInt) + highestInt;
     } else {
-        for (int i = lowestInt; i <= 0; i++) {
-            startPosition = fabs(lowestInt);
-            index++;
-        }
-
-        rows = startPosition;
+        rows = fabs(lowestInt);
     }
 
     char arr[rows][SIZE];
     // Adding '*' to the correspondent cells.
     for (int i = 0; i < SIZE; i++) {
-
         for (int j = 0; j < rows; j++) arr[j][i] = ' ';
-
         for (int j = 0; j < fabs((double)numbers[i]); j++) {
-
             if (numbers[i] > 0) {
                 arr[startPosition + j][i] = '*';
             } else if (numbers[i] < 0){
@@ -74,10 +66,8 @@ void main() {
         } 
     }
     
-    // Printing the 2d array to something similar to a Transpose of a Matrix
     for (int i = 0; i < rows; i++) {
         printf("\n");
-
         for (int j = 0; j < SIZE; j++) {
             printf("%c", arr[i][j]);
         }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+// main function, the program will start from this function.
 void main() {
     char word[30];
     printf("Enter word: ");
