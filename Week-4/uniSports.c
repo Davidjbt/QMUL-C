@@ -83,7 +83,7 @@ void displayPerformanceInTable(struct score *scores, int numOfScores) {
 
     printf("%s %i %i %i  %i %i %i  %2i %2i %2i  %3i", TEAM, results.homeWins, results.homeDraws, results.homeLoses, results.awayWins, results.awayDraws, results.awayLoses, results.GF, results.GA, results.GD, results.points); // prints the data under its correspondet header.
 }
-
+// main function, the program will start from this function.
 void main() {
     struct score scores[30]; // array of scores structure.
     int numOfScores = 0; 
