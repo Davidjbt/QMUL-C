@@ -45,7 +45,7 @@ int parseCharArrToInt(char operand[]) {
 
     return value;
 }
-
+// main function, the program will start from this function.
 void main() {
     char input[SIZE];
     printf("Enter operation: ");

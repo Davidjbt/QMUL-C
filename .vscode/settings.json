@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "shapes.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "TESTING.C": "cpp",
+        "testingdf.C": "cpp"
     }
 }

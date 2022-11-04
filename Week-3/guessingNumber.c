@@ -9,7 +9,7 @@ int getRandomNumber(int min, int max) {
     // srand(time(NULL)); uncomment this, so that every time the program is run it gets a different random value.
     unsigned randomNumber = rand();
     
-    return min + randomNumber % (max - min + 1); // Apply modulus operation to get the remainder of the randomNumber by the difference of the max and min + 1. then add min so that the result is between min and max.
+    return min + randomNumber % (max - min + 1); // Apply modulo operation to get the remainder of the randomNumber by the difference of the max and min + 1. then add min so that the result is between min and max.
 }
 // main function, the program will start from this function.
 void main() {

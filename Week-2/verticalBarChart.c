@@ -48,8 +48,10 @@ void main() {
             index++;
         }
         rows = fabs(lowestInt) + highestInt; // The numbers of rows used will be to absolute value of lowest int plus highest int
-    } else rows = fabs(lowestInt); // This will be the there is no positive numbers, and the number of rows used will be the absolute value of the lowest int
-    
+    } else {
+        startPosition = fabs(lowestInt); // 
+        rows = startPosition; // This will be the there is no positive numbers, and the number of rows used will be the absolute value of the lowest int
+    }
     char arr[rows][SIZE]; // Creates an array of character rows rows x SIZE columns
     // Adding '*' to the correspondent cells.
     for (int i = 0; i < SIZE; i++) { // Loops from 0 to SIZE (columns);
