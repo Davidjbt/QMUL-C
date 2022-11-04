@@ -39,42 +39,42 @@ void printStack(stackNode *stackPtr) { // prints the content of the stack.
         int i = 0;
         printf("\n");
         while (isEmpty(&stackPtr) == 0) { // while the node pointed by the stack pointer is not null, loop
-            i == 0? printf("Stack Pointer --> %i\n", stackPtr->nodeData): printf("%*c %i\n", 17, ' ', stackPtr->nodeData); // if 1st entry
-            i = 1;
-            stackPtr = stackPtr->nextPtr;
+            i == 0? printf("Stack Pointer --> %i\n", stackPtr->nodeData): printf("%*c %i\n", 17, ' ', stackPtr->nodeData); // if 1st entry we will print a indicator that indicates the node on top.
+            i = 1; // we change it so that the indicator is not displayed.
+            stackPtr = stackPtr->nextPtr; // stackPtr is assigned to the its next ptr.
         }
         printf("\n");
-    } else printf("Stack is empty!!\n");
+    } else printf("Stack is empty!!\n"); // if the stack is empty display the message.
 }
-
+// main function, the program will start from this function.
 void main() {
-    stackNode *stackPtr = NULL;
+    stackNode *stackPtr = NULL; // stackPtr created and initilized with NULL.
     char *input;
     char c;
     int exit = 0;
-    while (exit == 0) {
-        input = (char*) calloc(SIZE, sizeof(char));
+    while (exit == 0) { // while exit is 0 then loop
+        input = (char*) calloc(SIZE, sizeof(char)); // we allocate some chunk of memory to the input pointer 
         printf("Write stack command or Q to quit: ");
-        c = getchar();
+        c = getchar(); // Collects the input of user and assigns it to the input array. 
         for (int i = 0; c != '\n' && c != EOF && i < sizeof(input); i++) {
             input[i] = c;
             c = getchar();
         }
 
-        if (input[0] != 'Q') {
-            char *action = strtok(input, " ");
+        if (input[0] != 'Q') { // if the 1st character of input is not equals to Q then 
+            char *action = strtok(input, " "); // strtok return a pointer that points to the 1st word seperated by a space.
             int nodeData;
-            if (strcmp(action, "push") == 0) {
-                nodeData = atoi(strtok(NULL, " "));
+            if (strcmp(action, "push") == 0) { // if the action is push then we need another argument.
+                nodeData = atoi(strtok(NULL, " ")); // obtained by using once more strktok, atoi is used to parse the string to a integer value.
             }
 
-            if (strcmp(action, "push") == 0) {
-                push(&stackPtr, nodeData);
-                printStack(stackPtr);
+            if (strcmp(action, "push") == 0) { // if the action is equals to push
+                push(&stackPtr, nodeData); // then call method.
+                printStack(stackPtr); // print stack contents.
             } else if (strcmp(action, "pop") == 0) {
-                pop(&stackPtr);
-                printStack(stackPtr);
-            } else {
+                pop(&stackPtr); // then call method.
+                printStack(stackPtr); // print stack contents.
+            } else { // not valid action was entered.
                 printf("Action not recognized.");   
             }
         } else exit = 1;
