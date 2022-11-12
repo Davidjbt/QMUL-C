@@ -14,5 +14,4 @@ void main(int argc, char *argv[]) {
     } else {
         printf("File could not be opened.");
     }
-    
 }

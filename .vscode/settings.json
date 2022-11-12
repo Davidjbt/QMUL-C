@@ -3,6 +3,7 @@
         "shapes.h": "c",
         "stdio.h": "c",
         "TESTING.C": "cpp",
-        "testingdf.C": "cpp"
+        "testingdf.C": "cpp",
+        "typeinfo": "c"
     }
 }

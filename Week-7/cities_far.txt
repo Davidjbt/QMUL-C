@@ -1,0 +1,14 @@
+101 Birmingham
+178 Liverpool
+169 Leeds
+141 Sheffield
+106 Bristol
+163 Manchester
+155 Hull
+172 Bradford
+135 Stoke-on-Trent
+113 Wolverhampton
+192 Plymouth
+109 Nottingham
+113 Derby
+108 Dudley
