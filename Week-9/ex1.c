@@ -14,6 +14,9 @@ int main() {
     printf("Enter your name and patrol password: ");
     fgets(comment,80,stdin);
     sprintf(cmd,"echo '%s %s'>>reports.log",comment,now());
-    ____________;
+    system(cmd);
     return 0;
 }
+// 1. echo is a Unix/Linux command that takes a string as argument to output to the screen, by using the '>>', the string is written on the reports.log file. '%s %s' will collect 2 strings, comment and the value returned by now(). So cmd will have a Linux command, echo with 2 strings between single quotes as paramater.
+// 2. Creates a variable for storing the calendar time. time() calculates the current date and localtime  breaks it into some structure that asctime will use to form a string which represents the day and time of it.
+// 3. '>>' is used for appending the output in the file, and '>' is used for overwrite the contents of the file with the output.
