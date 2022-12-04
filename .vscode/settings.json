@@ -4,6 +4,8 @@
         "stdio.h": "c",
         "TESTING.C": "cpp",
         "testingdf.C": "cpp",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "inet.h": "c",
+        "netdb.h": "c"
     }
 }
