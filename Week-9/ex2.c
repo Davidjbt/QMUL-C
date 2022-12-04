@@ -43,18 +43,19 @@ void main(int argc, char* argv[]) {
         socklen_t clientLen = sizeof(client_addr);
         int clientSocketID = accept(serverSocketID, (struct sockaddr*) &client_addr, &clientLen);
 
-        if (clientSocketID == -1) error("Server cannot accept client socket");
+        char msg[256];
 
-        char* msg = "Message from client " + i;
+        if (read(clientSocketID, msg, 255) == -1) error("Server cannot write to client socket");
 
-        if (send(clientSocketID, msg, strlen(msg), 0) == -1) error("Server cannot write to client socket");
+        printf("Messaga from client %i: %s", i + 1, msg);
 
-        char receivedMessage[256];
-        if (read(clientSocketID, receivedMessage, sizeof(receivedMessage)) == -1) error("Server cannot write to client socket");
+        if (write(clientSocketID, "I got your message", 18) == -1) error("Server cannot write to client socket");
 
-        printf("%s\n", receivedMessage);
+        
         close(clientSocketID);
     }
+    printf("Limit of requests (%i) reached, closing server...", NUM_OF_CLIENTS);
+
     close(serverSocketID);
 }
 
