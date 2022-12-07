@@ -17,5 +17,4 @@ void main() {
     if (execle("changeUser", "changeUser", NULL, my_env)) {
         error("Cannot run changUser");
     }
-
 }    

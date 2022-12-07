@@ -6,8 +6,10 @@
 #include <errno.h>
 #include <signal.h>
 
-void end_game(int sig, int score){
-	printf("\nFinalscore: %i\n", score);
+int score = 0;
+
+void end_game(int sig){
+	printf("\nFinal score: %i\n", score);
 	exit(0);
 }
 
@@ -40,19 +42,17 @@ void testPalindrome(int len) {
 			printf("\nNot a Palindrome\n");
 			raise(SIGINT);
 			break;
-		}
-		else
+		} else
 			printf("\nPalindrome\n");
 	}
 }
 
 void main() {
 	int len = 3; // length of the palidrome word to be entered.
-	int score = 0;
 	int seconds = 20; // amount of period in which the user has to answer.
 	
 	catch_signal(SIGALRM, times_up);
-	catch_signal(SIGINT,end_game);
+	catch_signal(SIGINT, end_game);
 	
 	while (1) {
 		alarm(seconds);
