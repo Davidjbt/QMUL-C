@@ -44,6 +44,7 @@ void testPalindrome(int len) {
 			break;
 		} else
 			printf("\nPalindrome\n");
+			break;
 	}
 }
 
