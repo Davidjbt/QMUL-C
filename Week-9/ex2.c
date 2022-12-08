@@ -49,7 +49,7 @@ void main(int argc, char* argv[]) {
 
         printf("Messaga from client %i: %s", i + 1, msg);
 
-        if (write(clientSocketID, "I got your message", 18) == -1) error("Server cannot write to client socket");
+        if (write(clientSocketID, msg, sizeof(msg)) == -1) error("Server cannot write to client socket");
 
         
         close(clientSocketID);
