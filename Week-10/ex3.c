@@ -5,7 +5,7 @@
 
 void runChild(void) {
 	printf("\nI am the child! My pid is %d\n", getpid());
-	execlp("ls", "ls", "‐aF",  "/", NULL);
+	execlp("ls", "ls", "-aF",  "/", NULL);
 }
 
 void main() {

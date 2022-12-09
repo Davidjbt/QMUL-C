@@ -14,10 +14,15 @@ void error(char *msg) {
     exit(1);
 }
 
+pthread_mutex_t count_lock = PTHREAD_MUTEX_INITIALIZER;
+
 void* worker() {
+    pthread_mutex_lock(&count_lock);   
     for (int i = 0; i < 1000000; i++) {
         count++;
     }
+    pthread_mutex_unlock(&count_lock);   
+    return NULL;
 }
 
 void main() {
